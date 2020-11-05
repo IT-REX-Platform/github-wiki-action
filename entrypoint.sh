@@ -41,8 +41,10 @@ git pull https://$GH_TOKEN@github.com/$REPO.wiki.git
 cd ..
 
 # Generating the sidebar 
+pushd $WIKI_DIR
 github-wiki-sidebar --silent
-cat _Sidebar.md
+popd 
+
 # Get commit message
 if [ -z "$WIKI_PUSH_MESSAGE" ]; then
   message=$(git log -1 --format=%B)
