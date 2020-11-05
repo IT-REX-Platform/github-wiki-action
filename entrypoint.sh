@@ -42,7 +42,7 @@ cd ..
 
 # Generating the sidebar 
 github-wiki-sidebar --silent
-
+cat _Sidebar.md
 # Get commit message
 if [ -z "$WIKI_PUSH_MESSAGE" ]; then
   message=$(git log -1 --format=%B)
