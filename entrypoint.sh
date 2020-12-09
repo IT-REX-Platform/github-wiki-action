@@ -40,9 +40,16 @@ git config user.email $GH_MAIL
 git pull https://$GH_TOKEN@github.com/$REPO.wiki.git
 cd ..
 
-# Generating the sidebar 
 pushd $WIKI_DIR
+
+# Generating the sidebar 
 github-wiki-sidebar --silent
+
+# Exporting .drawio diagrams
+for diagram in $(find ./ -name '*.drawio'); do
+    drawio -xe -s 5 -f png $diagram
+done
+
 popd 
 
 # Get commit message
