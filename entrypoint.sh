@@ -47,7 +47,7 @@ github-wiki-sidebar --silent
 
 # Exporting .drawio diagrams
 for diagram in $(find ./ -name '*.drawio'); do
-    drawio -xe -s 5 -f png $diagram
+    drawio -xe -s 5 -f png $diagram --no-sandbox
 done
 
 popd 
